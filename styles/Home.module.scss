@@ -1,0 +1,72 @@
+.banner {
+  background-image: url("/images/slide1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 75vh;
+  position: relative;
+  .dark-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    display: flex;
+    align-items: center;
+
+    .text-container {
+      color: white;
+      text-align: center;
+      .title {
+        font-size: 18pt;
+        text-align: center;
+      }
+    }
+  }
+}
+
+#upcoming_section {
+  position: relative;
+  &::before {
+    position: absolute;
+    content: 'UPCOMING EVENT';
+    top: -35px;
+    height: 35px;
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    color: #333;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    .info {
+      .title {
+        font-weight: bold;
+        font-size: 22px;
+      }
+    }
+    .action {
+      margin-top: 10px;
+      color: #999999;
+      .date {
+        font-size: 16px;
+        color: #666666;
+        margin-bottom: 5px;
+      }
+      .location {
+        font-size: 14px;
+      }
+      .date, .location {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import "mixins/responsive";
+@import "theme";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  max-width: 100%;
+  padding: 0 1.65rem;
+  margin: auto;
+  @include md-screens {
+    max-width: 75%;
+  }
+}
