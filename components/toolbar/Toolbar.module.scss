@@ -7,9 +7,9 @@
     right: 0;
     z-index: 10;
 
-    .info-title {
+    .info {
         padding: .4rem 0;
-        background-color: $primary-color;
+        background-color: darken($primary-color, 18%);
         color: rgba(255, 255, 255, 0.6);
         .info-text {
             font-size: 13px;
@@ -36,13 +36,26 @@
                     height: 45px;
                 }
             }
+            .brand-links {
+                display: flex;
+                align-items: center;
+            }
             .links {
+
                 li {
                     display: inline-block;
+                    padding: 1.4rem;
+                    cursor: pointer;
                     a {
-                        display: block;
-                        padding: 1.4rem;
+                        display: flex;
+                        align-items: center;
                         color: #fff;
+                        &.active {
+                            color: $primary-color;
+                        }
+                        &:hover {
+                            text-decoration: none;
+                        }
                     }
                     button {
                         padding: .4rem 1.5rem;
@@ -56,6 +69,44 @@
                             border-color: $primary-color;
                         }
                     }
+                    
+                }
+                // dropdown menu in nav
+                .dropdown {
+                    position: relative;
+                    &:hover .dropdown-content {
+                        display: block;
+                    }
+                    .dropdown-content {
+                        display: none;
+                        position: absolute;
+                        background-color: white;
+                        padding: 0.4rem 0;
+                        top: 110%;
+                        left: 0;
+                        li {
+                            display: block;
+                            padding: 10px 20px;
+                            &:hover {
+                                background-color: transparentize($primary-color, 0.9);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.scrolled {
+        .info {
+            display: none;
+        }
+        #nav_bar {
+            background-color: #435061;
+            transition: all 0.4s ease;
+            .links {
+                a, button {
+                    // color: #333 !important;
                 }
             }
         }

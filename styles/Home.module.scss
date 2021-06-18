@@ -1,3 +1,5 @@
+@import "mixins/colors";
+
 .banner {
   background-image: url("/images/slide1.jpg");
   background-position: center;
@@ -28,24 +30,24 @@
 
 #upcoming_section {
   position: relative;
-  &::before {
-    position: absolute;
-    content: 'UPCOMING EVENT';
-    top: -35px;
-    height: 35px;
-    padding: 0.5rem 1.5rem;
-    font-weight: bold;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    font-size: 14px;
-    background-color: white;
-    color: #333;
-  }
 
   .header {
     display: flex;
     justify-content: space-between;
     padding: 1.5rem 0;
+    &::before {
+      position: absolute;
+      content: 'UPCOMING EVENT';
+      top: -35px;
+      height: 35px;
+      padding: 0.5rem 1.5rem;
+      font-weight: bold;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      font-size: 14px;
+      background-color: white;
+      color: #333;
+    }
     .info {
       .title {
         font-weight: bold;
@@ -67,6 +69,138 @@
         display: flex;
         align-items: center;
       }
+    }
+  }
+
+  .body {
+    // height: 45vh;
+    color: white;
+    background-color: #000;
+
+    .intro {
+      .title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .subtitle {
+        font-size: 14px;
+        color: #f2f2f2;
+      }
+    }
+
+    .desc {
+      display: flex;
+      align-items: flex-start;
+      .title {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .subtitle {
+        font-size: 14px;
+        font-weight: 400;
+        color: #ddd;
+        margin-bottom: 10px;
+      }
+    }
+    .desc .icon {
+      color: white;
+      font-size: 48px;
+    }
+
+  }
+
+}
+
+#events_section {
+  .events-list {
+    margin-top: 3.4rem;
+    img {
+      width: 100%;
+      height: 155px;
+      object-fit: cover;
+    }
+    .meta-info {
+      padding: 0.75rem 0;
+      .date {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .location {
+        display: flex;
+        font-size: 12px;
+        align-items: center;
+        color: #666666;
+      }
+    }
+    .description {
+      margin: 0.75rem 0;
+    }
+  }
+}
+
+#volunteer_section {
+  position: relative;
+  background-image: url("/images/volunteers.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 65vh;
+  .dark-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-box {
+    background-color: white;
+    height: 390px;
+    width: 380px;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title {
+      color: #435061;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+    .description {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+#news_section {
+  .events-list {
+    margin-top: 3.4rem;
+    img {
+      width: 100%;
+      height: 155px;
+      object-fit: cover;
+    }
+    .meta-info {
+      padding: 0.75rem 0;
+      .date {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 500;
+        color:rgba(0, 0, 0, 0.4);
+      }
+    }
+    .description {
+      margin: 0.5rem 0;
     }
   }
 }

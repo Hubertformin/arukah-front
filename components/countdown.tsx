@@ -32,19 +32,19 @@ function CountDown({date}) {
         : 
         <section className="flex">
             <div className="days text-center px-4">
-                <h1>{count.days}</h1>
+                <h1 className="text-4xl px-4 py-2 m-0 shadow">{count.days > 10 ? count.days : `0${count.days}`}</h1>
                 <small>Days</small>
             </div>
             <div className="hours text-center px-4">
-                <h1>{count.hours}</h1>
+                <h1 className="text-4xl px-4 py-2 m-0 shadow">{count.hours > 10 ? count.hours : `0${count.hours}`}</h1>
                 <small>Hours</small>
             </div>
             <div className="mins text-center px-4">
-                <h1>{count.mins}</h1>
+                <h1 className="text-4xl px-4 py-2 m-0 shadow">{count.mins > 10 ? count.mins : `0${count.mins}`}</h1>
                 <small>Minutes</small>
             </div>
             <div className="seconds text-center px-4">
-                <h1>{count.secs}</h1>
+                <h1 className="text-4xl px-4 py-2 m-0 shadow">{count.secs > 10 ? count.secs : `0${count.secs}`}</h1>
                 <small>Seconds</small>
             </div>
         </section>
