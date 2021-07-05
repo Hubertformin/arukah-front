@@ -21,8 +21,12 @@
       color: white;
       text-align: center;
       .title {
-        font-size: 18pt;
+        font-size: 36px;
+        margin-bottom: 20px;
         text-align: center;
+      }
+      .btn {
+        text-transform: capitalize;
       }
     }
   }
@@ -135,8 +139,17 @@
         color: #666666;
       }
     }
+    .title {
+      font-weight: bold;
+      margin-top: 0.3rem;
+      font-size: 18px;
+    }
     .description {
-      margin: 0.75rem 0;
+      margin: 0.2rem 0 0.75rem;
+      width: 100%;
+      display: -webkit-box;
+      --webkit-box-orient: vertical;
+      line-clamp: 3;
     }
   }
 }
@@ -171,12 +184,16 @@
     align-items: center;
     .title {
       color: #435061;
+      text-transform: capitalize;
       font-size: 24px;
       font-weight: 700;
       margin-bottom: 25px;
     }
     .description {
       margin-bottom: 30px;
+    }
+    .btn {
+      text-transform: capitalize;
     }
   }
 }

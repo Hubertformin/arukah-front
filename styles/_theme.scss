@@ -19,6 +19,10 @@ button {
     &.btn-outline {
         border: 1px solid #333333;
         color: #333333;
+        &.btn-primary {
+            border: 1px solid $primary-color;
+            color: $primary-color;
+        }
         &.white {
             border: 1px solid white;
             color: white; 
@@ -29,4 +33,18 @@ button {
         }
     }
 
+}
+
+// inputs
+input {
+    &.a_input {
+        display: block;
+        padding: 10px 14px;
+        border-radius: 5px;
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+    &:focus {
+        outline: none;
+    }
 }

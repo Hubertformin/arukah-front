@@ -1,0 +1,35 @@
+{
+    "title": "Bienvenue",
+    "welcome" : "Bienvenue sur le site officiel de la fondation mondiale Arukah",
+    "learnMore": "En savoir plus",
+    "upcomingEvent": "Événement à venir",
+    "aboutThisEvent": "À propos de cet événement",
+    "counter": {
+        "days": "Journées",
+        "hours": "Heures",
+        "mins": "Minutes",
+        "secs": "Secondes"
+    },
+    "donate": {
+        "label" : "Faire un don",
+        "description" : "Montrez votre soutien à cet événement en faisant un don à ce projet. La plupart des dons servent à acquérir des ressources matérielles et humaines",
+        "action": "Faire un don maintenant"
+    },
+    "volunteer": {
+        "label": "Bénévole",
+        "description" : "Devenez bénévole aujourd'hui et aidez-nous à changer de cap",
+        "action": "Devenez bénévole"
+    },
+    "aboutUsLabel": "À propos de nous",
+    "whoWeAre": "Qui nous sommes",
+    "aboutUsText" : "Arukah Global Foundation (AGF) est une organisation confessionnelle exonérée d'impôts qui est née de la volonté de voir le peuple camerounais avoir accès aux services de santé de base. Alors que les maladies transmissibles telles que le VIH et le paludisme ont été au centre de la plupart des campagnes de santé en Afrique, une population croissante de la classe moyenne a également entraîné une augmentation des maladies non transmissibles telles que le diabète, l'hypertension, les maladies cardiaques et les accidents vasculaires cérébraux.",
+    "ourEventsLabel": "Nos événements",
+    "becomeAVolunteer": "Devenez bénévole",
+    "becomeAVolunteerText": "Rejoignez la communauté de bénévoles d'Arukah pour aider à façonner le cours de l'Afrique, participez aux événements à venir",
+    "joinUsNow": "Rejoignez nous maintenant",
+    "arukahNews": "Nouvelles d'Arukah",
+    "subscribeToNewsLetters": "INSCRIVEZ-VOUS AUX NEWSLETTERS",
+    "emailAddress": "Adresse e-mail",
+    "firstName": "Prénom",
+    "submit": "ENVOYER"
+}

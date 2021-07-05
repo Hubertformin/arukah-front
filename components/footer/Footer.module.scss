@@ -1,0 +1,41 @@
+footer#Footer {
+    height: 400px;
+    background-color: #435060;
+    position: relative;
+    .section-label {
+        background-color: #303a46;
+    }
+    .brand {
+        img {
+            height: 200px;
+        }
+        .title {
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .subtitle {
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+    ul.links {
+        // display: inline-block;
+        li {
+            a {
+                display: flex;
+                align-items: center;
+                padding: 15px;
+                color: #92a2b4;
+            }
+        }
+    }
+    .copyright {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        font-size: 12px;
+        color: #84898f;
+        background-color: #36414e;
+    }
+}

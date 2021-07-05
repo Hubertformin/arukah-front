@@ -1,0 +1,35 @@
+{
+    "title": "Welcome",
+    "welcome" : "Welcome to the official website of Arukah Global Foundation",
+    "learnMore": "Learn more",
+    "upcomingEvent": "Upcoming event",
+    "aboutThisEvent": "About this event",
+    "counter": {
+        "days": "Days",
+        "hours": "Hours",
+        "mins": "Minutes",
+        "secs": "Seconds"
+    },
+    "donate": {
+        "label" : "Donate",
+        "description" : "Show your support for this event by donating to this project. Most donations go to help acquire material and human resources",
+        "action": "Donate now"
+    },
+    "volunteer": {
+        "label": "Volunteer",
+        "description" : "Become a volunteer today and helps us change the course",
+        "action": "Become a Volunteer"
+    },
+    "aboutUsLabel": "About Us",
+    "whoWeAre": "Who we are",
+    "aboutUsText" : "Arukah Global Foundation (AGF) is a faith-based tax-exempt organization that came about as a result of wanting to see the people of Cameroon have access to basic health care services. While communicable diseases such as HIV and Malaria have been the focus of most health campaigns in Africa, a growing middle-class population has also led to an increase in non-communicable diseases such as diabetes, hypertension, heart diseases and strokes.",
+    "ourEventsLabel": "Our Events",
+    "becomeAVolunteer": "Become a Volunteer",
+    "becomeAVolunteerText": "Join Arukah community of volunteers to help shape the course of Africa, Participate in upcoming events",
+    "joinUsNow": "Join Us Now",
+    "arukahNews": "Arukah News",
+    "subscribeToNewsLetters": "SUBSCRIBE TO NEWS LETTERS",
+    "emailAddress": "Email Address",
+    "firstName": "First Name",
+    "submit": "SUBMIT"
+}

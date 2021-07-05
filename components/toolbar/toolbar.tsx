@@ -1,11 +1,12 @@
+import Link from 'next/link';
 import React, { useEffect } from 'react';
 import {FiChevronDown, FiFacebook, FiMail, FiPhone, FiTwitter} from 'react-icons/fi'
 import ActiveLink from '../active-link';
 import './Toolbar.module.scss';
 
-export function Toolbar() {
+export function Toolbar({sticky=true}) {
 
-    const [scrolled,setScrolled]=React.useState(false);
+    const [scrolled, setScrolled]=React.useState(false);
     const handleScroll=() => {
         const offset=window.scrollY;
         if(offset > 200 ){
@@ -17,11 +18,13 @@ export function Toolbar() {
     }
 
     useEffect(() => {
-        window.addEventListener('scroll',handleScroll)
+        if (sticky) {
+            window.addEventListener('scroll',handleScroll)
+        }
     }, []);
 
     return (
-        <aside id="navigation" className={scrolled ? 'scrolled' : ''}>
+        <aside id="navigation" className={(scrolled || !sticky) ? 'scrolled' : ''}>
             <div className="info">
                 <div className="wrapper flex justify-between">
                     <p className="info-text">Welcome to Arukah</p>
@@ -38,10 +41,16 @@ export function Toolbar() {
             <nav id="nav_bar">
                 <div className="wrapper nav">
                     <ul className="brand-links">
-                        <li className="brand">
-                            <a href="/" className="brand">
-                                <img src="/images/logo.png" />
-                            </a>
+                        <li>
+                            <Link href="/">
+                                <div className="brand">
+                                <img src="/images/logo_250.png" />
+                                <div className="brand-name">
+                                    <h2 className="title">Arukah</h2>
+                                    <h4 className="subtitle">GLOBAL FOUNDATION</h4>
+                                </div>
+                                </div>
+                            </Link>
                         </li>
                     </ul>
                     <ul className="links">

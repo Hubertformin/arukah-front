@@ -32,8 +32,22 @@
             padding: 0.4rem 0;
             justify-content: space-between;
             .brand {
+                display: flex;
+                align-items: center;
                 img {
-                    height: 45px;
+                    height: 65px;
+                }
+                .brand-name {
+                    color: white;
+                    margin-left: 0.5rem;
+                    .title {
+                        font-family: 'Russo One', sans-serif;
+                        font-size: 22px;
+                        font-size: 500;
+                    }
+                    .subtitle {
+                        font-size: 10px;
+                    }
                 }
             }
             .brand-links {
@@ -49,9 +63,9 @@
                     a {
                         display: flex;
                         align-items: center;
-                        color: #fff;
+                        color: #f2f2f2;
                         &.active {
-                            color: $primary-color;
+                            color: #0caf4e;
                         }
                         &:hover {
                             text-decoration: none;
@@ -104,7 +118,11 @@
         #nav_bar {
             background-color: #435061;
             transition: all 0.4s ease;
+            .brand-links {
+                margin: 0;
+            }
             .links {
+                margin: 0;
                 a, button {
                     // color: #333 !important;
                 }
