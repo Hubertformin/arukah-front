@@ -4,7 +4,7 @@ import React from "react";
 import { FiCalendar, FiMapPin } from "react-icons/fi";
 import Footer from "../../components/footer/footer";
 import MetaTags from "../../components/meta-tags";
-import { Toolbar } from "../../components/toolbar/toolbar";
+import Toolbar from "../../components/toolbar/toolbar";
 import '../../styles/EventsHome.module.scss';
 import STRINGS from '../../strings';
 import { useState } from "react";

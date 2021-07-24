@@ -6,7 +6,7 @@ import { useState } from "react";
 import { FiCalendar, FiMapPin } from "react-icons/fi";
 import Footer from "../../components/footer/footer";
 import MetaTags from "../../components/meta-tags";
-import { Toolbar } from "../../components/toolbar/toolbar";
+import Toolbar from "../../components/toolbar/toolbar";
 import STRINGS from "../../strings";
 import '../../styles/Event.module.scss';
 import { getDateString } from "../../utils/functions";

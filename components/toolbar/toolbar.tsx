@@ -1,10 +1,14 @@
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 import {FiChevronDown, FiFacebook, FiMail, FiPhone, FiTwitter} from 'react-icons/fi'
 import ActiveLink from '../active-link';
 import './Toolbar.module.scss';
 
-export function Toolbar({sticky=true}) {
+function Toolbar({sticky=true}) {
+
+    const { t } = useTranslation('toolbar');
 
     const [scrolled, setScrolled]=React.useState(false);
     const handleScroll=() => {
@@ -24,10 +28,10 @@ export function Toolbar({sticky=true}) {
     }, []);
 
     return (
-        <aside id="navigation" className={(scrolled || !sticky) ? 'scrolled' : ''}>
+        <section id="navigation" className={(scrolled || !sticky) ? 'scrolled' : ''}>
             <div className="info">
                 <div className="wrapper flex justify-between">
-                    <p className="info-text">Welcome to Arukah</p>
+                    <p className="info-text">{t('title')}</p>
                     <div className="icons">
                         <ul>
                             <li><FiMail />&nbsp;info@arukahglobal.org</li>
@@ -56,26 +60,26 @@ export function Toolbar({sticky=true}) {
                     <ul className="links">
                         <li>
                             <ActiveLink href="/about">
-                                <a>About</a>
+                                <a>{t('about')}</a>
                             </ActiveLink>
                         </li>
                         <li>
                             <ActiveLink href="/events">
-                                <a>Events</a>
+                                <a>{t('events')}</a>
                             </ActiveLink>
                         </li>
-                        <li>
+                        <li className="dropdown-container">
                             <div className="dropdown">
-                                <a>Work with us&nbsp;<FiChevronDown /></a>
+                                <a>{t('workWithUs')}&nbsp;<FiChevronDown /></a>
                                 <ul className="dropdown-content">
                                     <li>
                                         <ActiveLink href="/careers">
-                                            <a className="active">Careers</a>
+                                            <a className="active">{t('careers')}</a>
                                         </ActiveLink>
                                     </li>
                                     <li>
                                         <ActiveLink href="/volunteers">
-                                            <a>Volunteers</a>
+                                            <a>{t('volunteers')}</a>
                                         </ActiveLink>
                                     </li>
                                 </ul>
@@ -83,17 +87,19 @@ export function Toolbar({sticky=true}) {
                         </li>
                         <li>
                             <ActiveLink href="/contact-us">
-                                <a>Contact Us</a>
+                                <a>{t('contactUs')}</a>
                             </ActiveLink>
                         </li>
                         <li>
                             <button>
-                                Donate
+                            {t('donate')}
                             </button>
                         </li>
                     </ul>
                 </div>
             </nav>
-        </aside>
+        </section>
     );
 }
+
+export default Toolbar;

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { FiCalendar, FiMapPin } from 'react-icons/fi';
 import CountDown from '../components/countdown';
-import MetaTags from '../components/meta-tags'
-import { Toolbar } from '../components/toolbar/toolbar';
+import MetaTags from '../components/meta-tags';
+import Toolbar from '../components/toolbar/toolbar';
 import {FaDonate, FaPeopleCarry} from 'react-icons/fa';
 import '../styles/Home.module.scss';
 import Link from 'next/link';
@@ -16,7 +16,7 @@ function Home() {
 
   return (
     <>
-      <MetaTags title="Welcome" description="Arukah global foundation, home of all places to be" />
+      <MetaTags title={t('title')} description={t('aboutUsText')} />
       <Toolbar />
       <section className="banner">
         <div className="dark-wrapper">
@@ -102,7 +102,7 @@ function Home() {
             </div>
             <div className="text col-sm-6 py-4 md:py-8">
               <h1 className="title text-2xl font-bold">{t('whoWeAre')}</h1>
-              <p>{t('aboutUsText')}</p>
+              <p className="about-text">{t('aboutUsText')}</p>
             </div>
           </div>
         </section>
@@ -272,7 +272,7 @@ function Home() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'home'])),
+      ...(await serverSideTranslations(locale, ['home', 'toolbar'])),
       // Will be passed to the page component as props
     },
   };

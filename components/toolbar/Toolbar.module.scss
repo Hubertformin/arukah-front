@@ -86,11 +86,11 @@
                     
                 }
                 // dropdown menu in nav
+                .dropdown-container:hover .dropdown-content {
+                    display: block;
+                }
                 .dropdown {
                     position: relative;
-                    &:hover .dropdown-content {
-                        display: block;
-                    }
                     .dropdown-content {
                         display: none;
                         position: absolute;
@@ -101,6 +101,9 @@
                         li {
                             display: block;
                             padding: 10px 20px;
+                            a {
+                                color: #333;
+                            }
                             &:hover {
                                 background-color: transparentize($primary-color, 0.9);
                             }
