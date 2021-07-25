@@ -1,0 +1,11 @@
+$primary-color: #296f29;
+$success-color: #33a033;
+$error-color: #d34949;
+
+.bg-theme-primary {
+    background-color: $primary-color;
+}
+
+.text-theme-primary {
+    color: $primary-color;
+}

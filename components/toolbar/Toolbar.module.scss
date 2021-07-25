@@ -1,0 +1,132 @@
+@import "../../styles/mixins/colors";
+
+#navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    .info {
+        padding: .4rem 0;
+        background-color: darken($primary-color, 18%);
+        color: rgba(255, 255, 255, 0.6);
+        .info-text {
+            font-size: 13px;
+        }
+        .icons {
+            ul li {
+               list-style-type: none;
+               display: inline-flex; 
+               align-items: center;
+               font-size: 13px;
+               padding: 0 10px;
+            }
+        }
+    }
+
+    #nav_bar {
+        // box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+        .nav {
+            display: flex;
+            padding: 0.4rem 0;
+            justify-content: space-between;
+            .brand {
+                display: flex;
+                align-items: center;
+                img {
+                    height: 65px;
+                }
+                .brand-name {
+                    color: white;
+                    margin-left: 0.5rem;
+                    .title {
+                        font-family: 'Russo One', sans-serif;
+                        font-size: 22px;
+                        font-size: 500;
+                    }
+                    .subtitle {
+                        font-size: 10px;
+                    }
+                }
+            }
+            .brand-links {
+                display: flex;
+                align-items: center;
+            }
+            .links {
+
+                li {
+                    display: inline-block;
+                    padding: 1.4rem;
+                    cursor: pointer;
+                    a {
+                        display: flex;
+                        align-items: center;
+                        color: #f2f2f2;
+                        &.active {
+                            color: #0caf4e;
+                        }
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                    button {
+                        padding: .4rem 1.5rem;
+                        border: 1px solid #999999;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        color: #fff;
+                        transition: 0.4s all ease;
+                        &:hover {
+                            color: $primary-color;
+                            border-color: $primary-color;
+                        }
+                    }
+                    
+                }
+                // dropdown menu in nav
+                .dropdown {
+                    position: relative;
+                    &:hover .dropdown-content {
+                        display: block;
+                    }
+                    .dropdown-content {
+                        display: none;
+                        position: absolute;
+                        background-color: white;
+                        padding: 0.4rem 0;
+                        top: 110%;
+                        left: 0;
+                        li {
+                            display: block;
+                            padding: 10px 20px;
+                            &:hover {
+                                background-color: transparentize($primary-color, 0.9);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.scrolled {
+        .info {
+            display: none;
+        }
+        #nav_bar {
+            background-color: #435061;
+            transition: all 0.4s ease;
+            .brand-links {
+                margin: 0;
+            }
+            .links {
+                margin: 0;
+                a, button {
+                    // color: #333 !important;
+                }
+            }
+        }
+    }
+}
