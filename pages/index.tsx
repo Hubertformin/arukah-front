@@ -31,7 +31,7 @@ function Home() {
         <section id="upcoming_section">
           <div className="wrapper">
             <div className="header">
-              <div className="info">
+              <div className="info mb-6 md:mb-0">
                 <h1 className="title">EDUCATION FOR KUMBA KIDS</h1>
                 <div className="action">
                   <div className="date"><FiCalendar />&nbsp;June 14, 2021 - July 05, 2021</div>
@@ -56,7 +56,7 @@ function Home() {
             <div className="wrapper">
               <div className="row">
               <div className="col-sm-6">
-                <div className="intro">
+                <div className="intro mb-6 md:mb-0">
                   <h1 className="title">{t('aboutThisEvent')}</h1>
                   <p className="subtitle">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad alias 
@@ -247,13 +247,13 @@ function Home() {
               </div>
               <div className="col-sm-8">
                 <div className="row">
-                  <div className="col-sm-5">
+                  <div className="col-sm-5 mb-4 md:mb-0">
                     <input type="email" placeholder={t('emailAddress')} className="a_input" />
                   </div>
-                  <div className="col-sm-5">
+                  <div className="col-sm-5 mb-4 md:mb-0">
                   <input type="text" placeholder={t('firstName')} className="a_input" />
                   </div>
-                  <div className="col-sm-2">
+                  <div className="col-sm-2 mb-6 md:mb-0">
                     <button className="btn capitalize">{t('submit')}</button>
                   </div>
                 </div>

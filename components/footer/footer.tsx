@@ -1,9 +1,12 @@
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import React from "react";
 import { FiMail, FiPhone } from "react-icons/fi";
 import './Footer.module.scss';
 
 function Footer() {
+    const {t} = useTranslation('footer');
+
     return (
         <footer id="Footer" className="py-8 md:py-16">
             <div className="wrapper">
@@ -15,36 +18,36 @@ function Footer() {
                     </div>
                     <div className="col-sm-5">
                         <p className="section-label">
-                            NAVIGATE
+                            {t('navigate')}
                         </p>
                         <div className="flex justify-between">
                             <ul className="links">
                                 <li>
-                                    <Link href=""><a>Home page</a></Link>
+                                    <Link href=""><a>{t('home')}</a></Link>
                                 </li>
                                 <li>
-                                    <Link href=""><a>Events</a></Link>
+                                    <Link href=""><a>{t('events')}</a></Link>
                                 </li>
                                 <li>
-                                    <Link href=""><a>Become a Volunteer</a></Link>
+                                    <Link href=""><a>{t('volunteer')}</a></Link>
                                 </li>
                             </ul>
                             <ul className="links">
                                 <li>
-                                    <Link href=""><a>Donate</a></Link>
+                                    <Link href=""><a>{t('donate')}</a></Link>
                                 </li>
                                 <li>
-                                    <Link href=""><a>Privacy policy</a></Link>
+                                    <Link href=""><a>{t('privacy')}</a></Link>
                                 </li>
                                 <li>
-                                    <Link href=""><a>Terms of use</a></Link>
+                                    <Link href=""><a>{t('termsOfUse')}</a></Link>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div className="col-sm-4">
                         <p className="section-label">
-                            CONTACT US
+                        {t('contact')}
                         </p>
                         <ul className="links">
                             <li><a href="/"><FiMail />&nbsp;contact@arukahglobal.com</a></li>

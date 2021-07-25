@@ -1,12 +1,15 @@
 import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import SlideToggle from "react-slide-toggle";
 import Link from 'next/link';
 import React, { useEffect } from 'react';
-import {FiChevronDown, FiFacebook, FiMail, FiPhone, FiTwitter} from 'react-icons/fi'
+import {FiChevronDown, FiFacebook, FiMail, FiMenu, FiPhone, FiTwitter} from 'react-icons/fi'
 import ActiveLink from '../active-link';
 import './Toolbar.module.scss';
+import { useState } from 'react';
 
 function Toolbar({sticky=true}) {
+
+    const [toggleMenu, setToggleMenu] = useState(false);
 
     const { t } = useTranslation('toolbar');
 
@@ -23,9 +26,13 @@ function Toolbar({sticky=true}) {
 
     useEffect(() => {
         if (sticky) {
-            window.addEventListener('scroll',handleScroll)
+            window.addEventListener('scroll',handleScroll);
         }
     }, []);
+
+    function toggleMenuFn() {
+        setToggleMenu(!toggleMenu)
+    }
 
     return (
         <section id="navigation" className={(scrolled || !sticky) ? 'scrolled' : ''}>
@@ -56,19 +63,74 @@ function Toolbar({sticky=true}) {
                                 </div>
                             </Link>
                         </li>
+                        <li className="menu md:hidden" onClick={toggleMenuFn}>
+                            <FiMenu />
+                        </li>
                     </ul>
                     <ul className="links">
-                        <li>
-                            <ActiveLink href="/about">
-                                <a>{t('about')}</a>
-                            </ActiveLink>
-                        </li>
-                        <li>
-                            <ActiveLink href="/events">
-                                <a>{t('events')}</a>
-                            </ActiveLink>
-                        </li>
-                        <li className="dropdown-container">
+                        <NavLinks t={t} />
+                    </ul>
+                </div>
+                <SlideToggle 
+                        toggleEvent={toggleMenu}
+                        collapsed={true}
+                    >
+                        {({ setCollapsibleElement }) => (
+                            <div className="my-collapsible">
+                                <ul id="sm_links"
+                                    className="my-collapsible__content"
+                                    ref={setCollapsibleElement}
+                                >
+                                    <NavLinks t={t} />
+                                </ul>
+                            </div>
+                        )}
+                    </SlideToggle>
+            </nav>
+        </section>
+    );
+}
+
+function NavLinks({t}) {
+    return(
+        <>
+        <li>
+            <ActiveLink href="/about">
+                <a>{t('about')}</a>
+            </ActiveLink>
+        </li>
+        <li>
+            <ActiveLink href="/events">
+                <a>{t('events')}</a>
+            </ActiveLink>
+        </li>
+        <li>
+            <ActiveLink href="/work-with-us">
+                <a>{t('workWithUs')}</a>
+            </ActiveLink>
+        </li>
+        <li>
+            <ActiveLink href="/volunteers">
+                <a>{t('volunteers')}</a>
+            </ActiveLink>
+        </li>
+        {/* <li>
+            <ActiveLink href="/contact-us">
+                <a>{t('contactUs')}</a>
+            </ActiveLink>
+        </li> */}
+        <li>
+            <button>
+                {t('donate')}
+            </button>
+        </li>
+        </>
+    );
+}
+
+export default Toolbar;
+
+{/* <li className="dropdown-container">
                             <div className="dropdown">
                                 <a>{t('workWithUs')}&nbsp;<FiChevronDown /></a>
                                 <ul className="dropdown-content">
@@ -84,22 +146,4 @@ function Toolbar({sticky=true}) {
                                     </li>
                                 </ul>
                             </div>
-                        </li>
-                        <li>
-                            <ActiveLink href="/contact-us">
-                                <a>{t('contactUs')}</a>
-                            </ActiveLink>
-                        </li>
-                        <li>
-                            <button>
-                            {t('donate')}
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </section>
-    );
-}
-
-export default Toolbar;
+                        </li> */}

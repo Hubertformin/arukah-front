@@ -72,7 +72,7 @@ function About() {
 export async function getStaticProps({ locale }) {
     return {
       props: {
-        ...(await serverSideTranslations(locale, ['toolbar', 'about'])),
+        ...(await serverSideTranslations(locale, ['toolbar', 'about', 'footer'])),
         // Will be passed to the page component as props
       },
     };

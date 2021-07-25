@@ -1,4 +1,5 @@
 @import "mixins/colors";
+@import "mixins/responsive";
 
 .banner {
   background-image: url("/images/slide1.jpg");
@@ -21,9 +22,12 @@
       color: white;
       text-align: center;
       .title {
-        font-size: 36px;
+        font-size: 24px;
         margin-bottom: 20px;
         text-align: center;
+        @include md-screens {
+          font-size: 36px;
+        }
       }
       .btn {
         text-transform: capitalize;
@@ -36,9 +40,11 @@
   position: relative;
 
   .header {
-    display: flex;
-    justify-content: space-between;
     padding: 1.5rem 0;
+    @include md-screens {
+      display: flex;
+      justify-content: space-between;
+    }
     &::before {
       position: absolute;
       content: 'UPCOMING EVENT';
@@ -57,21 +63,21 @@
         font-weight: bold;
         font-size: 22px;
       }
-    }
-    .action {
-      margin-top: 10px;
-      color: #999999;
-      .date {
-        font-size: 16px;
-        color: #666666;
-        margin-bottom: 5px;
-      }
-      .location {
-        font-size: 14px;
-      }
-      .date, .location {
-        display: flex;
-        align-items: center;
+      .action {
+        margin-top: 10px;
+        color: #999999;
+        .date {
+          font-size: 16px;
+          color: #666666;
+          margin-bottom: 5px;
+        }
+        .location {
+          font-size: 14px;
+        }
+        .date, .location {
+          display: flex;
+          align-items: center;
+        }
       }
     }
   }
@@ -79,7 +85,7 @@
   .body {
     // height: 45vh;
     color: white;
-    background-color: #000;
+    background-color: rgb(5, 29, 9);
 
     .intro {
       .title {
@@ -180,14 +186,18 @@
   }
   .card-box {
     background-color: white;
-    height: 390px;
-    width: 380px;
+    height: 280px;
+    width: 88%;
     border-radius: 10px;
     padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include md-screens {
+      width: 380px;
+      height: 390px;
+    }
     .title {
       color: #435061;
       text-transform: capitalize;
