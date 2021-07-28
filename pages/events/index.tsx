@@ -78,7 +78,7 @@ export async function getStaticProps({ locale }) {
     // get list of events
     let events;
     try {
-        events = await (await axios.get(`${STRINGS.apiURL}/events`)).data;
+        events = await (await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/events`)).data;
     } catch (e) {
         console.log(e);
         events = {}
