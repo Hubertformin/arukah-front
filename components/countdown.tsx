@@ -30,21 +30,21 @@ function CountDown({date, localeText={days: 'Days', hours: 'Hours', minutes: 'Mi
             <p>This event has already passed</p>
         </>
         : 
-        <section className="flex">
-            <div className="days text-center px-4">
-                <h1 className="text-4xl px-4 py-2 m-0 shadow">{count.days > 10 ? count.days : `0${count.days}`}</h1>
+        <section className="flex justify-between md:justify-start">
+            <div className="days text-center px-2">
+                <h1 className="text-2xl md:text-4xl px-4 py-2 m-0 shadow">{count.days > 10 ? count.days : `0${count.days}`}</h1>
                 <small>{localeText.days}</small>
             </div>
-            <div className="hours text-center px-4">
-                <h1 className="text-4xl px-4 py-2 m-0 shadow">{count.hours > 10 ? count.hours : `0${count.hours}`}</h1>
+            <div className="hours text-center px-2">
+                <h1 className="text-2xl md:text-4xl px-4 py-2 m-0 shadow">{count.hours > 10 ? count.hours : `0${count.hours}`}</h1>
                 <small>{localeText.hours}</small>
             </div>
-            <div className="mins text-center px-4">
-                <h1 className="text-4xl px-4 py-2 m-0 shadow">{count.mins > 10 ? count.mins : `0${count.mins}`}</h1>
+            <div className="mins text-center px-2">
+                <h1 className="text-2xl md:text-4xl px-4 py-2 m-0 shadow">{count.mins > 10 ? count.mins : `0${count.mins}`}</h1>
                 <small>{localeText.minutes}</small>
             </div>
-            <div className="seconds text-center px-4">
-                <h1 className="text-4xl px-4 py-2 m-0 shadow">{count.secs > 10 ? count.secs : `0${count.secs}`}</h1>
+            <div className="seconds text-center px-2">
+                <h1 className="text-2xl md:text-4xl px-4 py-2 m-0 shadow">{count.secs > 10 ? count.secs : `0${count.secs}`}</h1>
                 <small>{localeText.seconds}</small>
             </div>
         </section>

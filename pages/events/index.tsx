@@ -4,16 +4,19 @@ import React from "react";
 import { FiCalendar, FiMapPin } from "react-icons/fi";
 import Footer from "../../components/footer/footer";
 import MetaTags from "../../components/meta-tags";
-import { Toolbar } from "../../components/toolbar/toolbar";
+import Toolbar from "../../components/toolbar/toolbar";
 import '../../styles/EventsHome.module.scss';
 import STRINGS from '../../strings';
 import { useState } from "react";
 import { useEffect } from "react";
 import { getDateString } from "../../utils/functions";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 function EventsHome({_events}) {
 
     const [events, setEvents] = useState([]);
+    const {t} = useTranslation('toolbar');
 
     useEffect(() => {
         console.log(_events);
@@ -29,7 +32,7 @@ function EventsHome({_events}) {
         <section id="banner">
             <div className="dark-overlay">
                 <div className="wrapper">
-                    <p className="section-label">EVENTS</p>
+                    <p className="section-label">{t('events')}</p>
                 </div>
             </div>
         </section>
@@ -71,22 +74,22 @@ function EventsHome({_events}) {
     );
 }
 
-export async function getStaticProps(ctx) {
+export async function getStaticProps({ locale }) {
     // get list of events
+    let events;
     try {
-        const events = await axios.get(`${STRINGS.apiURL}/events`);
-        // console.log(events.data[0]);
-        return {
-            props: {
-                _events: events.data
-            }
-    }
+        events = await (await axios.get(`${STRINGS.apiURL}/events`)).data;
     } catch (e) {
         console.log(e);
-        return {
-            props: {
-                _events: null
-            }
+        events = {}
+    }
+
+    console.log(events);
+
+    return {
+        props: {
+            _events: events,
+            ...(await serverSideTranslations(locale, ['toolbar', 'footer'])),
         }
     }
 }

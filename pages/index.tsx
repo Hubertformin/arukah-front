@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { FiCalendar, FiMapPin } from 'react-icons/fi';
 import CountDown from '../components/countdown';
-import MetaTags from '../components/meta-tags'
-import { Toolbar } from '../components/toolbar/toolbar';
+import MetaTags from '../components/meta-tags';
+import Toolbar from '../components/toolbar/toolbar';
 import {FaDonate, FaPeopleCarry} from 'react-icons/fa';
 import '../styles/Home.module.scss';
 import Link from 'next/link';
@@ -16,7 +16,7 @@ function Home() {
 
   return (
     <>
-      <MetaTags title="Welcome" description="Arukah global foundation, home of all places to be" />
+      <MetaTags title={t('title')} description={t('aboutUsText')} />
       <Toolbar />
       <section className="banner">
         <div className="dark-wrapper">
@@ -31,7 +31,7 @@ function Home() {
         <section id="upcoming_section">
           <div className="wrapper">
             <div className="header">
-              <div className="info">
+              <div className="info mb-6 md:mb-0">
                 <h1 className="title">EDUCATION FOR KUMBA KIDS</h1>
                 <div className="action">
                   <div className="date"><FiCalendar />&nbsp;June 14, 2021 - July 05, 2021</div>
@@ -56,7 +56,7 @@ function Home() {
             <div className="wrapper">
               <div className="row">
               <div className="col-sm-6">
-                <div className="intro">
+                <div className="intro mb-6 md:mb-0">
                   <h1 className="title">{t('aboutThisEvent')}</h1>
                   <p className="subtitle">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad alias 
@@ -102,7 +102,7 @@ function Home() {
             </div>
             <div className="text col-sm-6 py-4 md:py-8">
               <h1 className="title text-2xl font-bold">{t('whoWeAre')}</h1>
-              <p>{t('aboutUsText')}</p>
+              <p className="about-text">{t('aboutUsText')}</p>
             </div>
           </div>
         </section>
@@ -247,13 +247,13 @@ function Home() {
               </div>
               <div className="col-sm-8">
                 <div className="row">
-                  <div className="col-sm-5">
+                  <div className="col-sm-5 mb-4 md:mb-0">
                     <input type="email" placeholder={t('emailAddress')} className="a_input" />
                   </div>
-                  <div className="col-sm-5">
+                  <div className="col-sm-5 mb-4 md:mb-0">
                   <input type="text" placeholder={t('firstName')} className="a_input" />
                   </div>
-                  <div className="col-sm-2">
+                  <div className="col-sm-2 mb-6 md:mb-0">
                     <button className="btn capitalize">{t('submit')}</button>
                   </div>
                 </div>
@@ -272,7 +272,7 @@ function Home() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'home'])),
+      ...(await serverSideTranslations(locale, ['home', 'toolbar'])),
       // Will be passed to the page component as props
     },
   };

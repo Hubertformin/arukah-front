@@ -1,0 +1,10 @@
+PASSWORDS:
+
+GMAIL:
+email: arukah.app@gmail.com 
+password: ARUAKGLOBAL23
+
+
+SENDGRID, HEROKU:
+email: <same>
+password: Arukah@passwords23
