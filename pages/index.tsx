@@ -59,10 +59,10 @@ function Home() {
                 <div className="intro mb-6 md:mb-0">
                   <h1 className="title">{t('aboutThisEvent')}</h1>
                   <p className="subtitle">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad alias 
-                    consectetur laborum modi laboriosam? Dignissimos suscipit minima 
-                    dolorem reprehenderit animi id cumque, adipisci placeat eius. 
-                    Quasi ab rem adipisci eos?
+                    Arukah Global Foundation is working to ensure that every child receives a good quality 
+                    education, and learns the skills they will need to thrive in the 21st century. 
+                    We are breaking down the barriers to education by helping marginalised and 
+                    vulnerable children – including those who are living in conflict and disaster zones...
                   </p>
                 
                 </div>
@@ -120,7 +120,8 @@ function Home() {
               </div>
               <h2 className="title">EDUCATION FOR KUMBA KIDS</h2>
               <p className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam malesuada dapibus d...
+                Arukah Global Foundation is working to ensure that every child receives a good quality 
+                education...
               </p>
               <Link href="/events/1">
                 <a>{t('learnMore')}</a>
@@ -134,7 +135,7 @@ function Home() {
               </div>
               <h2 className="title">YELLOW FEVER VACCINATION</h2>
               <p className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam malesuada dapibus d...
+                Yellow fever (YF) outbreaks continue, have expanded into new areas and threaten large populations...
               </p>
               <Link href="/events/1">
                 <a>{t('learnMore')}</a>
@@ -148,7 +149,7 @@ function Home() {
               </div>
               <h2 className="title">MALARIA CAMPAIGN</h2>
               <p className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam malesuada dapibus d...
+                In 2019, nearly half of the world's population was at risk of malaria. Most malaria cases...
               </p>
               <Link href="/events/1">
                 <a>{t('learnMore')}</a>
@@ -162,7 +163,7 @@ function Home() {
               </div>
               <h2 className="title">HELPING ORPHANS</h2>
               <p className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam malesuada dapibus d...
+                Arukah is committed to providing hope, health and security to abused, abandoned and neglected children...
               </p>
               <Link href="/events/1">
                 <a>{t('learnMore')}</a>
@@ -194,7 +195,7 @@ function Home() {
                   <div className="date"><FiCalendar />&nbsp;July 20, 2021</div>
               </div>
               <p className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam malesuada dapibus d...
+                Advanced technologies have been used to solve a long-standing mystery about why some...
               </p>
               <Link href="/events/1">
                 <a>{t('learnMore')}</a>
@@ -206,7 +207,7 @@ function Home() {
                   <div className="date"><FiCalendar />&nbsp;July 20, 2021</div>
               </div>
               <p className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam malesuada dapibus d...
+                A multinational research group has been the first to show the excellent activity...
               </p>
               <Link href="/events/1">
                 <a>{t('learnMore')}</a>
@@ -218,7 +219,7 @@ function Home() {
                   <div className="date"><FiCalendar />&nbsp;July 24, 2021</div>
               </div>
               <p className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam malesuada dapibus d...
+                An oral prodrug developed by a team of scientists led by Binghe Wang...
               </p>
               <Link href="/events/1">
                 <a>{t('learnMore')}</a>
@@ -230,7 +231,7 @@ function Home() {
                   <div className="date"><FiCalendar />&nbsp;July 30, 2021</div>
               </div>
               <p className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam malesuada dapibus d...
+                A new study has been published in Science Advances that exploits proteomics ...
               </p>
               <Link href="/events/1">
                 <a>{t('learnMore')}</a>
