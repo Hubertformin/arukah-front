@@ -119,7 +119,7 @@ function Event({_event}) {
 export async function getServerSideProps(ctx) {
     try {
         // get event by Id
-        const event = await axios.get(`${STRINGS.apiURL}/events/${ctx.params.eventId}`);
+        const event = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/events/${ctx.params.eventId}`);
         // console.log(event);
 
         return {
