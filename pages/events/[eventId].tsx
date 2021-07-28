@@ -13,7 +13,14 @@ import { getDateString } from "../../utils/functions";
 
 function Event({_event}) {
 
-    const [event, setEvent] = useState();
+    const [event, setEvent] = useState({
+        title: "",
+        CoverPhoto: {url: ""},
+        StartDate: "",
+        Location: "",
+        description: ""
+
+    });
 
     useEffect(() => {
         setEvent(_event);
@@ -21,12 +28,12 @@ function Event({_event}) {
 
     return(
         <>
-        <MetaTags title={event?.title} />
+        <MetaTags title={event.title} />
         <Toolbar sticky={false} />
         <section id="banner">
             <div className="dark-overlay">
                 <div className="wrapper">
-                    <p className="section-label">{event?.title}</p>
+                    <p className="section-label">{event.title}</p>
                 </div>
             </div>
         </section>
