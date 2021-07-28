@@ -1,8 +1,20 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
+import Footer from "../components/footer/footer";
+import MetaTags from "../components/meta-tags";
+import Toolbar from "../components/toolbar/toolbar";
 
 function BlogHome() {
+  return (
+    <>
+      <MetaTags title="Blog" />
+      <Toolbar sticky={true} />
+      <section id="page_body">
 
+      </section>
+      <Footer />
+    </>
+  );
 }
 
 export async function getStaticProps({ locale }) {
