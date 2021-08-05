@@ -43,7 +43,7 @@ function Event({_event}) {
                 <div className="col-sm-8">
                     <div className="tile">
                         <div className="img-cover">
-                                <img src={STRINGS.apiURL + event?.CoverPhoto?.url}  alt="" />
+                                <img src={process.env.NEXT_PUBLIC_API_URL + event?.CoverPhoto?.url}  alt="" />
                         </div>
                         <div className="action">
                             <div className="meta">
@@ -63,7 +63,7 @@ function Event({_event}) {
                             {event?.title}
                         </h1>
 
-                        <div className="content">{event?.description}</div>
+                        <div className="content" dangerouslySetInnerHTML={{__html: event?.description}}></div>
                     </section>
                 </div>
                 <div className="col-sm-4">

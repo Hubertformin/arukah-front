@@ -9,8 +9,11 @@ import Link from 'next/link';
 import Footer from '../components/footer/footer';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import axios from 'axios';
+import { getDateString } from '../utils/functions';
 
-function Home() {
+function Home({cms, events}) {
+  // console.log(cms);
 
   const { t } = useTranslation('home');
 
@@ -21,8 +24,11 @@ function Home() {
       <section className="banner">
         <div className="dark-wrapper">
           <div className="text-container wrapper">
-            <h1 className="title">{t('welcome')}</h1>
-            <button className="btn">{t('LearnMore')}</button>
+            <h1 className="title">{cms.home_banner.title}</h1>
+            <div className="description">{cms.home_banner.description}</div>
+            <Link href="/about">
+              <button className="btn">{t('LearnMore')}</button>
+            </Link>
           </div>
         </div>
       </section>
@@ -32,15 +38,15 @@ function Home() {
           <div className="wrapper">
             <div className="header">
               <div className="info mb-6 md:mb-0">
-                <h1 className="title">EDUCATION FOR KUMBA KIDS</h1>
+                <h1 className="title">{events[0].title}</h1>
                 <div className="action">
-                  <div className="date"><FiCalendar />&nbsp;June 14, 2021 - July 05, 2021</div>
-                  <div className="location"><FiMapPin />&nbsp;Kumba, Cameroon</div>
+                  <div className="date"><FiCalendar />&nbsp;{getDateString(events[0].StartDate)} - {getDateString(events[0].EndDate)}</div>
+                  <div className="location"><FiMapPin />&nbsp;{events[0].Location}</div>
                 </div>
               </div>
               <div className="countdown">
                 <CountDown 
-                  date={new Date("2021/08/22 16:49:34")}
+                  date={new Date(events[0].StartDate)}
                   localeText={{
                     days: t('counter.days'),
                     hours: t('counter.hours'),
@@ -58,12 +64,7 @@ function Home() {
               <div className="col-sm-6">
                 <div className="intro mb-6 md:mb-0">
                   <h1 className="title">{t('aboutThisEvent')}</h1>
-                  <p className="subtitle">
-                    Arukah Global Foundation is working to ensure that every child receives a good quality 
-                    education, and learns the skills they will need to thrive in the 21st century. 
-                    We are breaking down the barriers to education by helping marginalised and 
-                    vulnerable children – including those who are living in conflict and disaster zones...
-                  </p>
+                  <p className="subtitle" dangerouslySetInnerHTML={{__html: events[0].description.slice(0, 400) + '..'}}></p>
                 
                 </div>
               </div>
@@ -98,11 +99,11 @@ function Home() {
           <p className="section-label">{t('aboutUsLabel')}</p>
           <div className="row">
             <div className="picture  py-6 col-sm-6">
-              <img src="/images/about.jpeg" alt="about_arukah" />
+              <img src={process.env.NEXT_PUBLIC_API_URL+ cms.about_section.about_image.url} alt="about_arukah" />
             </div>
             <div className="text col-sm-6 py-4 md:py-8">
               <h1 className="title text-2xl font-bold">{t('whoWeAre')}</h1>
-              <p className="about-text">{t('aboutUsText')}</p>
+              <p className="about-text">{cms.about_section.about_arukah}</p>
             </div>
           </div>
         </section>
@@ -177,7 +178,7 @@ function Home() {
             <div className="card-box">
               <h1 className="title">{t('becomeAVolunteer')}</h1>
               <p className="description">{t('becomeAVolunteerText')}</p>
-              <Link href="/work-with-us/volunteers">
+              <Link href="/work-with-us/">
                 <button className="btn action">{t('joinUsNow')}</button>
               </Link>
             </div>
@@ -271,9 +272,18 @@ function Home() {
 }
 
 export async function getStaticProps({ locale }) {
+  const isoDate = new Date().toISOString();
+  // get cms content
+  // get events sorted by date
+  const [cms_req, events_req] = await Promise.all([
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/home-page?_locale=${locale}`),
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/events?StartDate_gt=${isoDate}&_sort=StartDate:ASC`)
+  ]);
   return {
     props: {
       ...(await serverSideTranslations(locale, ['home', 'toolbar'])),
+      cms: cms_req.data,
+      events: events_req.data
       // Will be passed to the page component as props
     },
   };
