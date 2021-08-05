@@ -1,0 +1,19 @@
+{
+    "workWithUs": "Work With Us",
+    "volunteer": "Become a Volunteer",
+    "description" : "Join Arukah community of volunteers to help shape the course of Africa, Participate in upcoming events",
+    "form": {
+        "name": "Name",
+        "nameError": "Please insert your name",
+        "email": "Email",
+        "phoneNumber": "Phone number",
+        "phoneError": "Please insert your phone number",
+        "gender": "Gender",
+        "male": "Male",
+        "female": "Female",
+        "age": "Age",
+        "agePlaceholder": "How old are you?",
+        "address": "Address",
+        "submit": "Submit"
+    }
+}

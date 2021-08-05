@@ -44,7 +44,7 @@ function EventsHome({_events}) {
                         return(
                             <div key={"col-" + event._id} className="col-sm-4">
                                 <div className="events-card" key={"card" + event._id}>
-                                    <img src={STRINGS.apiURL + event.CoverPhoto.url}  key={"evt-img-" + event._id} alt="" />
+                                    <img src={process.env.NEXT_PUBLIC_API_URL + event.CoverPhoto.url}  key={"evt-img-" + event._id} alt="" />
                                     <div className="content" key={"content" + event._id}>
                                         <div className="meta-info" key={"meta-info" + event._id}>
                                             <div className="date" key={"cal-icon" + event._id}><FiCalendar />&nbsp;{getDateString(event.StartDate)}</div>
@@ -53,7 +53,7 @@ function EventsHome({_events}) {
                                         <Link href={`/events/${event._id}`} key={"link-" + event._id}>
                                             <a className="title" key={"link-title-" + event._id}>{event.title}</a>
                                         </Link>
-                                        <div className="description" key={"description" + event._id}>{event.description}</div>
+                                        <div className="description" key={"description" + event._id} dangerouslySetInnerHTML={{__html: event.description}}></div>
                                         <div className="action" key={"action-" + event._id}>
                                             <Link href={`/events/${event._id}`} key={"action-link-" + event._id}>
                                                 <button className="btn-outline btn-primary" key={"action-btn" + event._id}>Learn more</button>
@@ -84,7 +84,7 @@ export async function getStaticProps({ locale }) {
         events = {}
     }
 
-    console.log(events);
+    // console.log(events);
 
     return {
         props: {

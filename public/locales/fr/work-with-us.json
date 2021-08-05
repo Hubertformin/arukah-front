@@ -1,0 +1,19 @@
+{
+    "workWithUs": "Travaille avec nous",
+    "volunteer": "Devenez bénévole",
+    "description" : "Rejoignez la communauté de bénévoles d'Arukah pour aider à façonner le cours de l'Afrique, participez aux événements à venir",
+    "form": {
+        "name": "Nom",
+        "nameError": "Veuillez insérer votre nom",
+        "email": "E-mail",
+        "phoneNumber": "Numéro de téléphone",
+        "phoneError": "Veuillez insérer votre numéro de téléphone",
+        "gender": "Sexe",
+        "male": "Mâle",
+        "female": "Femelle",
+        "age": "Âge",
+        "agePlaceholder": "Quel âge as-tu?",
+        "address": "Addresse",
+        "submit": "Soumettre"
+    }
+}

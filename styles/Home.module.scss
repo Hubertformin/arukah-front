@@ -25,6 +25,7 @@
         font-size: 24px;
         margin-bottom: 20px;
         text-align: center;
+        color: white;
         @include md-screens {
           font-size: 36px;
         }
@@ -89,13 +90,19 @@
 
     .intro {
       .title {
+        color: white;
         font-size: 18px;
         font-weight: bold;
         margin-bottom: 10px;
       }
       .subtitle {
-        font-size: 14px;
+        font-size: 16px;
         color: #f2f2f2;
+        display: -webkit-box;
+        overflow: hidden;
+        line-clamp: 4;
+        --webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
       }
     }
 
@@ -105,6 +112,7 @@
       .title {
         font-size: 18px;
         font-weight: bold;
+        color: white;
       }
       .subtitle {
         font-size: 14px;
