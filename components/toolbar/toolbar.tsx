@@ -6,6 +6,7 @@ import {FiChevronDown, FiFacebook, FiMail, FiMenu, FiPhone, FiTwitter} from 'rea
 import ActiveLink from '../active-link';
 import './Toolbar.module.scss';
 import { useState } from 'react';
+import STRINGS from '../../strings';
 
 function Toolbar({sticky=true}) {
 
@@ -41,8 +42,8 @@ function Toolbar({sticky=true}) {
                     <p className="info-text">{t('title')}</p>
                     <div className="icons">
                         <ul>
-                            <li><FiMail />&nbsp;info@arukahglobal.org</li>
-                            <li><FiPhone />&nbsp;(602) 56 78 94</li>
+                            <li><FiMail />&nbsp;{STRINGS.email}</li>
+                            <li><FiPhone />&nbsp;{STRINGS.phoneNumber}</li>
                             <li><FiFacebook /></li>
                             <li><FiTwitter /></li>
                         </ul>
