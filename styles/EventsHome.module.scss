@@ -32,6 +32,11 @@
             font-size: 18px;
             cursor: pointer;
             color:rgba(0, 0, 0, 0.8);
+            white-space: nowrap;
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
             &:hover {
               text-decoration: underline;
             }

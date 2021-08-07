@@ -12,8 +12,8 @@ import { useTranslation } from 'next-i18next';
 import axios from 'axios';
 import { getDateString } from '../utils/functions';
 
-function Home({cms, events}) {
-  // console.log(cms);
+function Home({cms, events, locale}) {
+  // console.log(events);
 
   const { t } = useTranslation('home');
 
@@ -113,64 +113,25 @@ function Home({cms, events}) {
             <p className="section-label">{t('ourEventsLabel')}</p>
           </div>
           <div className="row events-list">
-            <div className="col-sm-3">
-              <img src="/images/event-one.png" alt="" />
-              <div className="meta-info">
-                  <div className="date"><FiCalendar />&nbsp;July 20, 2021</div>
-                  <div className="location"><FiMapPin />&nbsp;Kumba, Cameroon</div>
-              </div>
-              <h2 className="title">EDUCATION FOR KUMBA KIDS</h2>
-              <p className="description">
-                Arukah Global Foundation is working to ensure that every child receives a good quality 
-                education...
-              </p>
-              <Link href="/events/1">
-                <a>{t('learnMore')}</a>
-              </Link>
+            {
+              events.map(event => {
+                return(
+                  <div className="col-sm-3">
+                    <img src={process.env.NEXT_PUBLIC_API_URL + event.CoverPhoto.url}  key={"evt-img-" + event._id} alt="" />
+                    <div className="meta-info">
+                      <div className="date"><FiCalendar />&nbsp;{getDateString(event.StartDate, locale)}</div>
+                      <div className="location"><FiMapPin />&nbsp;{event.Location}</div>
+                    </div>
+                    <h2 className="title">{event.title}</h2>
+                    <p className="description" dangerouslySetInnerHTML={{__html: event.description.slice(0, 100) + '...'}}></p>
+                    <Link href={`/events/${event._id}`}>
+                      <a>{t('learnMore')}</a>
+                    </Link>
+                  </div>
+                )
+              })
+            }
             </div>
-            <div className="col-sm-3">
-              <img src="/images/event-two.jpeg" alt="" />
-              <div className="meta-info">
-                  <div className="date"><FiCalendar />&nbsp;July 20, 2021</div>
-                  <div className="location"><FiMapPin />&nbsp;Kumba, Cameroon</div>
-              </div>
-              <h2 className="title">YELLOW FEVER VACCINATION</h2>
-              <p className="description">
-                Yellow fever (YF) outbreaks continue, have expanded into new areas and threaten large populations...
-              </p>
-              <Link href="/events/1">
-                <a>{t('learnMore')}</a>
-              </Link>
-            </div>
-            <div className="col-sm-3">
-              <img src="/images/event-three.jpeg" alt="" />
-              <div className="meta-info">
-                  <div className="date"><FiCalendar />&nbsp;July 24, 2021</div>
-                  <div className="location"><FiMapPin />&nbsp;Kumba, Cameroon</div>
-              </div>
-              <h2 className="title">MALARIA CAMPAIGN</h2>
-              <p className="description">
-                In 2019, nearly half of the world's population was at risk of malaria. Most malaria cases...
-              </p>
-              <Link href="/events/1">
-                <a>{t('learnMore')}</a>
-              </Link>
-            </div>
-            <div className="col-sm-3">
-              <img src="/images/event-four.jpeg" alt="" />
-              <div className="meta-info">
-                  <div className="date"><FiCalendar />&nbsp;July 30, 2021</div>
-                  <div className="location"><FiMapPin />&nbsp;Kumba, Cameroon</div>
-              </div>
-              <h2 className="title">HELPING ORPHANS</h2>
-              <p className="description">
-                Arukah is committed to providing hope, health and security to abused, abandoned and neglected children...
-              </p>
-              <Link href="/events/1">
-                <a>{t('learnMore')}</a>
-              </Link>
-            </div>
-          </div>
         </section>
 
         <section id="volunteer_section">
@@ -277,11 +238,12 @@ export async function getStaticProps({ locale }) {
   // get events sorted by date
   const [cms_req, events_req] = await Promise.all([
     axios.get(`${process.env.NEXT_PUBLIC_API_URL}/home-page?_locale=${locale}`),
-    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/events?StartDate_gt=${isoDate}&_sort=StartDate:ASC`)
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/events?StartDate_gt=${isoDate}&_sort=StartDate:ASC&_locale=${locale}`)
   ]);
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['home', 'toolbar'])),
+      ...(await serverSideTranslations(locale, ['home', 'toolbar', 'footer'])),
+      locale,
       cms: cms_req.data,
       events: events_req.data
       // Will be passed to the page component as props

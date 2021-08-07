@@ -2,6 +2,7 @@ import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import React from "react";
 import { FiMail, FiPhone } from "react-icons/fi";
+import STRINGS from "../../strings";
 import './Footer.module.scss';
 
 function Footer() {
@@ -23,24 +24,24 @@ function Footer() {
                         <div className="flex justify-between">
                             <ul className="links">
                                 <li>
-                                    <Link href=""><a>{t('home')}</a></Link>
+                                    <Link href="/"><a>{t('home')}</a></Link>
                                 </li>
                                 <li>
-                                    <Link href=""><a>{t('events')}</a></Link>
+                                    <Link href="/events"><a>{t('events')}</a></Link>
                                 </li>
                                 <li>
-                                    <Link href=""><a>{t('volunteer')}</a></Link>
+                                    <Link href="/work-with-us"><a>{t('volunteer')}</a></Link>
                                 </li>
                             </ul>
                             <ul className="links">
                                 <li>
-                                    <Link href=""><a>{t('donate')}</a></Link>
+                                    <Link href="/donate"><a>{t('donate')}</a></Link>
                                 </li>
                                 <li>
-                                    <Link href=""><a>{t('privacy')}</a></Link>
+                                    <Link href="/privacy-policy"><a>{t('privacy')}</a></Link>
                                 </li>
                                 <li>
-                                    <Link href=""><a>{t('termsOfUse')}</a></Link>
+                                    <Link href="/terms-conditions"><a>{t('termsOfUse')}</a></Link>
                                 </li>
                             </ul>
                         </div>
@@ -50,8 +51,8 @@ function Footer() {
                         {t('contact')}
                         </p>
                         <ul className="links">
-                            <li><a href="/"><FiMail />&nbsp;contact@arukahglobal.com</a></li>
-                            <li><a href="/"><FiPhone />&nbsp;+237 689 00 00 00</a></li>
+                            <li><a href="/"><FiMail />&nbsp;{STRINGS.email}</a></li>
+                            <li><a href="/"><FiPhone />&nbsp;{STRINGS.phoneNumber}</a></li>
                         </ul>
                     </div>
                 </div>

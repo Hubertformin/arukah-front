@@ -1,7 +1,7 @@
 const STRINGS = {
     name: 'Arukah',
-    email: 'info@arukahglobal.org',
-    phoneNumber: '(602) 34 67 98',
+    email: 'agf@arukahglobalfoundation.org',
+    phoneNumber: '+237 602 346 798',
     facebookUrl: '',
     twitterUrl: '',
     // apiURL: 'http://localhost:1337'

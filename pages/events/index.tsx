@@ -6,20 +6,19 @@ import Footer from "../../components/footer/footer";
 import MetaTags from "../../components/meta-tags";
 import Toolbar from "../../components/toolbar/toolbar";
 import '../../styles/EventsHome.module.scss';
-import STRINGS from '../../strings';
 import { useState } from "react";
 import { useEffect } from "react";
 import { getDateString } from "../../utils/functions";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
-function EventsHome({_events}) {
+function EventsHome({_events, locale}) {
 
     const [events, setEvents] = useState([]);
     const {t} = useTranslation('toolbar');
 
     useEffect(() => {
-        console.log(_events);
+        // console.log(_events);
         if (_events.length) {
             setEvents([..._events]);
         }
@@ -47,13 +46,13 @@ function EventsHome({_events}) {
                                     <img src={process.env.NEXT_PUBLIC_API_URL + event.CoverPhoto.url}  key={"evt-img-" + event._id} alt="" />
                                     <div className="content" key={"content" + event._id}>
                                         <div className="meta-info" key={"meta-info" + event._id}>
-                                            <div className="date" key={"cal-icon" + event._id}><FiCalendar />&nbsp;{getDateString(event.StartDate)}</div>
+                                            <div className="date" key={"cal-icon" + event._id}><FiCalendar />&nbsp;{getDateString(event.StartDate, locale)}</div>
                                             <div className="location" key={"loc-icon" + event._id}><FiMapPin />&nbsp;{event.Location}</div>
                                         </div>
                                         <Link href={`/events/${event._id}`} key={"link-" + event._id}>
                                             <a className="title" key={"link-title-" + event._id}>{event.title}</a>
                                         </Link>
-                                        <div className="description" key={"description" + event._id} dangerouslySetInnerHTML={{__html: event.description}}></div>
+                                        <div className="description" key={"description" + event._id} dangerouslySetInnerHTML={{__html: event.description.slice(0, 100) + '..'}}></div>
                                         <div className="action" key={"action-" + event._id}>
                                             <Link href={`/events/${event._id}`} key={"action-link-" + event._id}>
                                                 <button className="btn-outline btn-primary" key={"action-btn" + event._id}>Learn more</button>
@@ -75,10 +74,12 @@ function EventsHome({_events}) {
 }
 
 export async function getStaticProps({ locale }) {
+    const isoDate = new Date().toISOString();
     // get list of events
     let events;
     try {
-        events = await (await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/events`)).data;
+        const _events = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/events?StartDate_gt=${isoDate}&_sort=StartDate:ASC&_locale=${locale}`);
+        events = _events.data;
     } catch (e) {
         console.log(e);
         events = {}
@@ -89,6 +90,7 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             _events: events,
+            locale,
             ...(await serverSideTranslations(locale, ['toolbar', 'footer'])),
         }
     }
