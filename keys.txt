@@ -8,3 +8,6 @@ password: ARUAKGLOBAL23
 SENDGRID, HEROKU:
 email: <same>
 password: Arukah@passwords23
+
+PAYPAL:
+SECRET: ECgvPcVRdk_6Q38ERJrDFGJbLFFZ_eCbDOH5dy6-_8yE0vcgWXtuu84MFIkhkenQyC1T_pFKzyFjhKqd
